@@ -7,7 +7,10 @@
     <com.google.android.youtube.player.YouTubePlayerView
         android:id="@+id/youtubeplayerfragment"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:addStatesFromChildren="true"
+        android:alwaysDrawnWithCache="true"
+        android:duplicateParentState="true" />
 
 </RelativeLayout>
 <!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
