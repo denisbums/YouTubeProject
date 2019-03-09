@@ -1,24 +1,22 @@
 package com.tvjuvelir.youtubevideoplayinapp;
 
-import android.content.Intent;
+
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+
 import android.widget.Toast;
 
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayer.Provider;
 import com.google.android.youtube.player.YouTubePlayerSupportFragment;
-import com.google.android.youtube.player.YouTubePlayerView;
+
+import java.util.concurrent.ExecutionException;
 
 public class MainFragment extends YouTubePlayerSupportFragment {
 
+
     private static final int RECOVERY_REQUEST = 1;
     YouTubePlayer activePlayer;
-    String URL_VIDEO = "OUKxmHgLe8k";
-    String KEY_DEVELOPER = "AIzaSyCpaLDiVr0eUyI8wVa2b2TtteCSF5NbDLc";
 
     public static MainFragment newInstance() {
         MainFragment playerYouTubeFrag = new MainFragment();
@@ -27,7 +25,7 @@ public class MainFragment extends YouTubePlayerSupportFragment {
     }
 
     private void init() {
-        initialize(KEY_DEVELOPER, new YouTubePlayer.OnInitializedListener() {
+        initialize(MainActivity.Key, new YouTubePlayer.OnInitializedListener() {
             @Override
             public void onInitializationFailure(Provider arg0, YouTubeInitializationResult arg1) {
                 if (arg1.isUserRecoverableError()) {
@@ -42,7 +40,14 @@ public class MainFragment extends YouTubePlayerSupportFragment {
                 activePlayer = player;
                 activePlayer.setPlayerStyle(YouTubePlayer.PlayerStyle.CHROMELESS);
                 if (!wasRestored) {
-                    activePlayer.loadVideo(URL_VIDEO, 0);
+                    LiveData ld = new LiveData();
+                    String Url = "";
+                    try {
+                        Url = ld.execute().get();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                       }
+                    activePlayer.loadVideo(Url, 0);
                 }
             }
         });
