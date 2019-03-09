@@ -33,7 +33,7 @@ public class LiveData extends AsyncTask<Void, Void, String> {
             }).setApplicationName("Ювелирочка").build();
 
             YouTube.Search.List searchListByKeywordRequest = youtube.search().list("snippet");
-            searchListByKeywordRequest.setMaxResults(Long.parseLong("50"));
+            searchListByKeywordRequest.setMaxResults(Long.parseLong("5"));
             searchListByKeywordRequest.setQ("Ювелирочка ТВ");
             searchListByKeywordRequest.setKey(MainActivity.Key);
             SearchListResponse response = searchListByKeywordRequest.execute();

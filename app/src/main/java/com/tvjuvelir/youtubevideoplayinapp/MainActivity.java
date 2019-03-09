@@ -5,8 +5,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 
-import com.google.android.youtube.player.YouTubeBaseActivity;
-
 public class MainActivity extends AppCompatActivity{
     public static String Key = "AIzaSyCpaLDiVr0eUyI8wVa2b2TtteCSF5NbDLc";
 
