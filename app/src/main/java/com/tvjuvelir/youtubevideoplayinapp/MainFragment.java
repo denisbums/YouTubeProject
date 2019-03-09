@@ -16,7 +16,15 @@ public class MainFragment extends YouTubePlayerSupportFragment {
 
 
     private static final int RECOVERY_REQUEST = 1;
-    YouTubePlayer activePlayer;
+    private YouTubePlayer activePlayer;
+    private String Url = "";
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if(activePlayer != null)
+        activePlayer.loadVideo(Url, 0);
+    }
 
     public static MainFragment newInstance() {
         MainFragment playerYouTubeFrag = new MainFragment();
@@ -41,7 +49,6 @@ public class MainFragment extends YouTubePlayerSupportFragment {
                 activePlayer.setPlayerStyle(YouTubePlayer.PlayerStyle.CHROMELESS);
                 if (!wasRestored) {
                     LiveData ld = new LiveData();
-                    String Url = "";
                     try {
                         Url = ld.execute().get();
                         } catch (Exception e) {
