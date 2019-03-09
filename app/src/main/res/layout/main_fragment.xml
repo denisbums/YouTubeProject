@@ -1,18 +1,33 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <com.google.android.youtube.player.YouTubePlayerView
-        android:id="@+id/youtubeplayerfragment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:addStatesFromChildren="true"
-        android:alwaysDrawnWithCache="true"
-        android:duplicateParentState="true" />
+    <!--<com.google.android.youtube.player.YouTubePlayerView-->
+        <!--android:id="@+id/youtubeplayerfragment"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:addStatesFromChildren="true"-->
+        <!--android:alwaysDrawnWithCache="true"-->
+        <!--android:duplicateParentState="true">-->
 
-</RelativeLayout>
+    <!--</com.google.android.youtube.player.YouTubePlayerView>-->
+    <!--<fragment android:name="com.google.android.youtube.player.YouTubePlayerSupportFragment"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:id="@+id/youtube_view"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"/>-->
+    <Button
+        android:id="@+id/button_sound"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_sound" />
+
+</LinearLayout>
 <!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
     <!--xmlns:tools="http://schemas.android.com/tools"-->
     <!--android:layout_width="match_parent"-->
