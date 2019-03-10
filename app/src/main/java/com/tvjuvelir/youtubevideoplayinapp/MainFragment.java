@@ -1,6 +1,7 @@
 package com.tvjuvelir.youtubevideoplayinapp;
 
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 
 import android.support.annotation.Nullable;
@@ -58,10 +59,11 @@ public class MainFragment extends Fragment  implements YouTubePlayer.OnInitializ
             }
             if(Url.equals("")) {
                 Url = "Mi_HIpmMelU";
-                Toast.makeText(getContext(),"Quotas!",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(),"Quotas empty!",Toast.LENGTH_SHORT).show();
             }
         }
         activePlayer.loadVideo(Url, 0);
+        activePlayer.play();
     }
 
     @Override
