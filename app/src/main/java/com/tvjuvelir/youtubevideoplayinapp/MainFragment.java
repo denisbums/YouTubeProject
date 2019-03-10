@@ -15,18 +15,21 @@ import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayer.Provider;
 import com.google.android.youtube.player.YouTubePlayerSupportFragment;
+import com.google.android.youtube.player.YouTubePlayerView;
 
 
-public class MainFragment extends Fragment  implements YouTubePlayer.OnInitializedListener{
+public class MainFragment extends YouTubePlayerSupportFragment  implements YouTubePlayer.OnInitializedListener{
 
     private static final int RECOVERY_REQUEST = 1;
     YouTubePlayer activePlayer;
+    YouTubePlayerView activePlayerView;
     YouTubePlayerSupportFragment playerFragment;
     String Url = "";
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        activePlayerView = (YouTubePlayerView)super.onCreateView(inflater,container,savedInstanceState);
         View MainFragment =inflater.inflate(R.layout.main_fragment, container, false);
         playerFragment = (YouTubePlayerSupportFragment) getChildFragmentManager().findFragmentById(R.id.youtubeplayerfragment);
         playerFragment.initialize(MainActivity.Key, this);
@@ -48,7 +51,7 @@ public class MainFragment extends Fragment  implements YouTubePlayer.OnInitializ
 
     @Override
     public void onInitializationSuccess(Provider provider, YouTubePlayer youTubePlayer, boolean b) {
-        activePlayer = youTubePlayer;
+        activePlayer =  youTubePlayer;
         activePlayer.setPlayerStyle(YouTubePlayer.PlayerStyle.CHROMELESS);
         if (!b && Url.equals("")) {
             LiveData ld = new LiveData();
